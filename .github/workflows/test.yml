@@ -1,0 +1,19 @@
+name: Test Grep
+
+on: workflow_dispatch
+
+jobs:
+  testgrep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: "grep matching pattern"
+        run: |
+         set -eo pipefail
+         # Everything works fine
+         echo "foo" | grep "foo"
+      - name: "grep not matching pattern"
+        run: |
+          set -eo pipefail
+          # Workflow failes because grep exits with 1
+          echo "foo" | grep "bar"
