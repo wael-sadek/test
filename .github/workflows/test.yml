@@ -8,10 +8,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: "grep matching pattern"
+        timeout-minutes: 1
         run: |
          set -eo pipefail
          # Everything works fine
          echo "foo" | grep "foo"
+         sleep 70
       - name: "grep not matching pattern"
         run: |
           set -eo pipefail
