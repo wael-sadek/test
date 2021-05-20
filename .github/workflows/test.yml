@@ -1,21 +1,14 @@
-name: Test Grep
+name: Test
 
 on: workflow_dispatch
 
 jobs:
-  testgrep:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: "grep matching pattern"
-        timeout-minutes: 1
         run: |
          set -eo pipefail
-         # Everything works fine
-         echo "foo" | grep "foo"
-         sleep 70
-      - name: "grep not matching pattern"
-        run: |
-          set -eo pipefail
-          # Workflow failes because grep exits with 1
-          echo "foo" | grep "bar"
+         set +x
+         echo ${GITHUB_REF}
