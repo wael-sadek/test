@@ -11,4 +11,4 @@ jobs:
         run: |
          set -eo pipefail
          set +x
-         ./test.sh
+         sh ./test.sh
