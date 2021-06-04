@@ -11,5 +11,4 @@ jobs:
         run: |
          set -eo pipefail
          set +x
-         apt update
          sudo apt update
