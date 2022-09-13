@@ -12,4 +12,4 @@ jobs:
       - name: Set 
         run: TEST123=blahblah; export TEST123
       - name: test
-        run echo $TEST123
+        run: echo $TEST123
