@@ -10,6 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set 
-        run: TEST123=blahblah; export TEST123
+        run: TEST123=blahblah; export TEST123; echo $TEST123
       - name: test
         run: echo $TEST123
