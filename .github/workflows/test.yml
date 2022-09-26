@@ -9,7 +9,7 @@ jobs:
       TEST: ${{ secrets.TEST }}
     steps:
       - uses: actions/checkout@v2
-      - name: Set 
-        run: TEST123=blahblah; export TEST123; echo $TEST123
-      - name: test
-        run: echo $TEST123
+      - name: Get report
+        run: |
+          # pip install pyOpenSSL --upgrade
+          pip install simple_salesforce
