@@ -11,6 +11,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Get report
         run: |
-          # pip install pyOpenSSL --upgrade
+          pip install pyOpenSSL --upgrade
           pip install simple_salesforce
-          pip list -g
+          pip list
