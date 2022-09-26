@@ -13,3 +13,4 @@ jobs:
         run: |
           # pip install pyOpenSSL --upgrade
           pip install simple_salesforce
+          pip list -g
