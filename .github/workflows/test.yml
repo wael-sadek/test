@@ -17,7 +17,6 @@ jobs:
     needs: job_1
     steps:
       - name: step_1
-        id: step_1
         run: |
           echo ${{ needs.job_1.outputs.test_output }}
     
