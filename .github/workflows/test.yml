@@ -11,7 +11,7 @@ jobs:
       - name: step_1
         id: step_1
         run: |
-          echo "test_output=blahblah" >> $GITHUB_OUTPUT
+          echo "{test_output}={blahblah}" >> $GITHUB_OUTPUT
   job_2:
     runs-on: ubuntu-latest
     needs: job_1
