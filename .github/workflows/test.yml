@@ -3,14 +3,21 @@ name: Test
 on: workflow_dispatch
 
 jobs:
-  test:
+  job_1:
     runs-on: ubuntu-latest
-    env:
-      TEST: ${{ secrets.TEST }}
+    outputs:
+      test_output: ${{ steps.step_1.outputs.test_output }}
     steps:
-      - uses: actions/checkout@v2
-      - name: Get report
+      - name: step_1
+        id: step_1
         run: |
-          # pip install pyOpenSSL --upgrade
-          pip install simple_salesforce
-          pip list
+          echo "::set-output name=test_output::blahblah"
+  job_2:
+    runs-on: ubuntu-latest
+    needs: job_1
+    steps:
+      - name: step_1
+        id: step_1
+        run: |
+          echo ${{ needs.job_1.outputs.test_output }}
+    
