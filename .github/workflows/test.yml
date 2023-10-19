@@ -5,28 +5,6 @@ on: workflow_dispatch
 jobs:
   job_1:
     runs-on: ubuntu-latest
-    outputs:
-      is_forked: ${{ steps.check.outputs.is_forked }}
     steps:
       - name: step_1
-        id: check
-        run: |
-          echo "is_forked=$(curl -s -H "Accept: application/vnd.github+json" -H 'Authorization: Bearer ${{ github.token }}' -H "X-GitHub-Api-Version: 2022-11-28" ${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY} | jq .fork)" >> $GITHUB_OUTPUT
-          echo "is_forked=true" >> $GITHUB_OUTPUT
-      - name: step_2
-        run: |
-          echo github.event.number = ${{ github.event.number  }}
-          echo github.event.pull_request.number = ${{ github.event.pull_request.number }}
-          echo github.event.issue.number = ${{ github.event.issue.number }}
-  job_2:
-    runs-on: ubuntu-latest
-    needs: job_1
-    if: needs.job_1.outputs.is_forked == 'false'
-    steps:
-      - name: step_3
-        run: echo Test
-  job_3:
-    runs-on: ubuntu-latest
-    steps:
-      - name: step_4
-        run: env
+        run:  gh pr merge --auto --delete-branch --squash ${GITHUB_HEAD_REF}
