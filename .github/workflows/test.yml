@@ -11,4 +11,4 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: wael-sadek/test-1
-          token: ${{ secrets.TEST }}
+          token: ${{ secrets.TEST1 }}
