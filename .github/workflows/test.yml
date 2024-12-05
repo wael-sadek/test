@@ -8,6 +8,6 @@ jobs:
     env:
       GH_TOKEN: ${{ github.token }}
     steps:
-      - uses: actions/checkout@v2
-      - name: step_1
-        run:  gh pr merge --auto --delete-branch --squash ${GITHUB_HEAD_REF}
+      - uses: actions/checkout@v4
+        with:
+          repository: wael-sadek/test-1
